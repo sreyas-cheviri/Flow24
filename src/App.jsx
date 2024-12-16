@@ -1,11 +1,12 @@
 // import React from "react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Counter } from "./components/counter"
 import { Header } from "./components/header"
 import { Inputcompo } from "./components/input"
 import {Time} from "./components/time"
 import { Quotes } from "./components/quotes"
 import { Footer } from "./components/footer"
+import { Skeleton } from "./components/skeleton"
 
 function App() {
 
@@ -21,8 +22,14 @@ function App() {
   }
   const handlereset =() =>{
     setIsStart(false);
+    resetTimer();
   }
-
+  const resetTimer = () => {
+    setHours(0);
+    setMinutes(0);
+    setSeconds(0);
+    clearInterval(timerId);
+  }
   const handleinput= (e) =>{
     console.log(e.target.id, e.target.value);
     const value = parseInt(e.target.value);
@@ -35,17 +42,60 @@ function App() {
       setSeconds(value);
     } 
   }
+  const runTimer = (sec, min, hr, tid) => {
+    if (sec > 0) {
+      setSeconds((s) => s - 1);
+    } else if (sec === 0 && min > 0) {
+      setMinutes((m) => m - 1);
+      setSeconds(59);
+    } else if (min === 0) {
+      setHours((h) => h - 1);
+      setMinutes(59);
+      setSeconds(59);
+    }
 
+    if (sec === 0 && min === 0 && hr === 0) {
+      handlereset();
+      alert('Timer is finished');
+      clearInterval(tid);
+      return
+    }
+  }
+
+
+  
+  useEffect(()=>{
+    let tid;
+    if(isStart){
+      tid = setInterval(() => {
+        runTimer(seconds,minutes,hourse,tid)
+      }, 1000);
+      setTimerId(tid);
+    }
+    return ()=>{
+      clearInterval(tid);
+    }
+
+  },[isStart,hourse,minutes,seconds])
 
   return (
   <div className="bg-[#eee] min-h-screen items-center m-0 flex flex-col gap-1 justify-center p-1  ">
-
+   
     <Header/>
     {!isStart && (<Inputcompo onStart ={handlestart} handleinput={handleinput}/>)}
-    {isStart && (<Counter onreset={handlereset} />)}
+    {isStart && (<Counter 
+      hourse={hourse}
+      minutes={minutes}
+      seconds={seconds}
+      isPaused={isPaused}
+      // handlePause={handlePause}
+      // handleResume={handleResume}
+    onreset={handlereset} />)}
     
     <Time/>
-    <Quotes/>
+  
+    <Quotes/> 
+    
     {/* <Quotes/> */}
     <Footer/>
 

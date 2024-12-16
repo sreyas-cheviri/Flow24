@@ -8,7 +8,7 @@ export const Quotes = () => {
     const [error, setError] = useState(null);
     const categories = ['success', 'motivation', 'hardwork' , 'design','education','dreams'];
 
-    const API_KEY = 'BJ8aRRUOSFRz7OXK7RGugg==HfODcZTtvYpVJ6Kg';
+    const API_KEY = import.meta.env.VITE_API_KEY;
 
 
     const fetchQuote = async () => {
@@ -47,11 +47,11 @@ export const Quotes = () => {
                 {loading ? (
                     <img src={gif} alt="Loading..." className="w-16 h-16" />
                 ) : error ? (
-                    <p className="text-gray-400 font-thin text-sm">try again</p>
+                    <p className="text-orange-400 font-thin text-sm">try again</p>
                 ) : (
                     <div className='flex-col justify-center items-center'>
                         <h4 className="text-sm mb-4">{quote}</h4>
-                        <p className="text-gray-400 font-thin text-sm italic">- {author}</p>
+                        <p className="text-orange-400 font-thin text-sm italic">- {author}</p>
                     </div>
                 )}
             </div>
