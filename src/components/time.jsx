@@ -1,23 +1,38 @@
+import { useState, useEffect } from "react";
 
+export const Time = () => {
+    const [time, setTime] = useState('');
 
+    useEffect(() => {
+        function updatetimer() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const amPm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;  
+            hours = String(hours).padStart(2, '0');
+            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const dayOfWeek = daysOfWeek[now.getDay()]; 
+            const newTime = `${hours}:${minutes}:${seconds} ${amPm} ${dayOfWeek}`;
+            setTime(newTime);
+           
+        }
 
-export const Time = ({}) => {
+        const intervalId = setInterval(updatetimer, 1000); // Save the interval ID the setinterval internally creates
+        updatetimer(); 
+
+        return () => clearInterval(intervalId); 
+    }, []); 
+
     return (
-        <div className="input-container flex flex-row gap-1 font-medium  text-white  w-[270px]  mx-auto rounded-3xl justify-center">
-            <div className="input-boxs flex flex-col p-8 rounded-r-xl  justify-center shadow-2xl shadow-orange-900 rounded-3xl bg-black items-center max-w-64 flex-1 ">
-               <h2>Tuesday</h2> 
-               
-               <h4>11:00:34 <span>AM</span></h4> 
-               {/* <h4>2024</h4>  */}
-          
+        <div className="input-container flex flex-row gap-1 font-medium text-white max-w-[270px] w-[270px] mx-auto rounded-3xl justify-center">
+            <div className=" flex flex-col rounded-r-xl justify-center shadow-2xl shadow-orange-900 rounded-3xl bg-black items-center w-full flex-2">
+                <h4 className="px-5">{time}</h4>
+            </div>
+            <div className=" flex flex-col py-8  rounded-l-xl justify-center shadow-2xl shadow-orange-900 rounded-3xl w-full bg-black items-center flex-4">
+                <h2>Coming soon...</h2>
+            </div>
         </div>
-            <div className="input-boxs flex flex-col p-8 rounded-l-xl  justify-center shadow-2xl shadow-orange-900 rounded-3xl bg-black items-center max-w-64 flex-3 ">
-               <h2>Listen</h2> 
-               
-               <h4>play</h4> 
-               {/* <h4>2024</h4>  */}
-          
-        </div>
-    </div>
     );
 };

@@ -9,6 +9,7 @@ export const Inputcompo = ({ onStart , handleinput}) => {
     const [min, setmin] = useState('');
     const [hrs, sethrs] = useState('');
     const [clickc, setclickc] = useState(false);
+    const [error, setError] = useState('');
 
     useEffect(() => {
         if (clickc) {
@@ -31,25 +32,25 @@ export const Inputcompo = ({ onStart , handleinput}) => {
         ) {
             if (sec === '' && min === '' && hrs === '') {
                 inputRefHrs.current.focus();
-                alert("Enter some values")
+                setError('Enter values')
             }
             else if (isNaN(sec) || sec < 0) {
                 setSec('')
                 setmin('')
                 sethrs('')
-                alert("Invalid input")
+                setError('Invalid input')
                 inputRefHrs.current.focus();
             } else if (isNaN(min) || min < 0) {
                 setSec('')
                 setmin('')
                 sethrs('')
-                alert("Invalid input")
+                setError('Invalid input')
                 inputRefHrs.current.focus();
             } else {
                 setSec('')
                 setmin('')
                 sethrs('')
-                alert("Invalid input")
+                setError('Invalid input')
                 inputRefHrs.current.focus();
             }
         } else {
@@ -99,7 +100,10 @@ export const Inputcompo = ({ onStart , handleinput}) => {
                     className="sec text-4xl p-2 flex-1 max-w-14 bg-transparent border-none focus:outline-none placeholder:text-gray-500 focus:placeholder:text-white"
                     placeholder="00"
                 />
+               
             </div>
+            
+            <p className='text-center italic m-0 font-thin p-1 text-orange-400 '> {error}</p>
             <button
                 className="start-btn p-3 m-0 text-lg rounded-2xl bg-white text-black hover:bg-orange-400 hover:text-white"
                 onClick={checkInput}
