@@ -28,7 +28,7 @@ export const Time = () => {
     return (
         <div className="input-container flex flex-row gap-1 font-medium text-white max-w-[270px] w-[270px] mx-auto rounded-3xl justify-center">
             <div className=" flex flex-col rounded-r-xl justify-center shadow-2xl shadow-orange-900 rounded-3xl bg-black items-center w-full flex-2">
-                <h4 className="px-3 text-xl font-custom">{time}</h4>
+                <h4 className="px-3 text-xl text-center font-custom">{time}</h4>
             </div>
             <div className=" flex flex-col py-8  rounded-l-xl justify-center shadow-2xl shadow-orange-900 rounded-3xl w-full bg-black items-center flex-4">
                 <h2>Coming soon...</h2>
