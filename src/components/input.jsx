@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { useRef, useState, useEffect } from 'react';
 
-export const Inputcompo = ({ onStart , handleinput}) => {
+export const Inputcompo = ({ onStart, handleinput }) => {
     const inputRefHrs = useRef(null);
 
     const [sec, setSec] = useState('');
@@ -60,7 +60,7 @@ export const Inputcompo = ({ onStart , handleinput}) => {
 
 
     return (
-        <div onClick={handlecompoclick} className="input-container flex flex-col font-medium bg-black text-white p-2 shadow-2xl shadow-orange-900 mx-auto rounded-3xl justify-center">
+        <div onClick={handlecompoclick} className="input-container flex flex-col font-custom bg-black text-white p-2 shadow-2xl shadow-orange-900 mx-auto rounded-3xl justify-center">
             <div className="input-boxs flex flex-row p-10 justify-center items-center max-w-64">
                 <input
                     id='hrs'
@@ -69,7 +69,7 @@ export const Inputcompo = ({ onStart , handleinput}) => {
                     onChange={(e) => {
                         handleinput(e);  // Call the first function
                         sethrs(e.target.value); // Perform the second action
-                      }}
+                    }}
                     className="hrs text-4xl p-2 max-w-14 flex-1 bg-transparent border-none focus:outline-none placeholder:text-gray-500 focus:placeholder:text-white"
                     placeholder="00"
                     autoComplete="off"
@@ -81,7 +81,7 @@ export const Inputcompo = ({ onStart , handleinput}) => {
                     onChange={(e) => {
                         handleinput(e); // Call the first function
                         setmin(e.target.value); // Perform the second action
-                      }}
+                    }}
                     className="min text-4xl p-2 flex-1 max-w-14 bg-transparent border-none focus:outline-none placeholder:text-gray-500 focus:placeholder:text-white"
                     placeholder="00"
                     autoComplete="off"
@@ -96,14 +96,20 @@ export const Inputcompo = ({ onStart , handleinput}) => {
                     onChange={(e) => {
                         handleinput(e); // Call the first function
                         setSec(e.target.value); // Perform the second action
-                      }}
+                    }}
                     className="sec text-4xl p-2 flex-1 max-w-14 bg-transparent border-none focus:outline-none placeholder:text-gray-500 focus:placeholder:text-white"
                     placeholder="00"
                 />
-               
+
             </div>
-            
-            <p className='text-center italic m-0 font-thin p-1 text-orange-400 '> {error}</p>
+
+            <p
+                className="text-center italic m-0 font-thin p-1 text-orange-400"
+                style={{ display: error === '' ? 'none' : 'block' }}
+            >
+                {error}
+            </p>
+
             <button
                 className="start-btn p-3 m-0 text-lg rounded-2xl bg-white text-black hover:bg-orange-400 hover:text-white"
                 onClick={checkInput}

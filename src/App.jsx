@@ -6,7 +6,6 @@ import { Inputcompo } from "./components/input"
 import {Time} from "./components/time"
 import { Quotes } from "./components/quotes"
 import { Footer } from "./components/footer"
-import { Skeleton } from "./components/skeleton"
 
 function App() {
 

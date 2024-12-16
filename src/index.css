@@ -1,4 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'MyFont';
+    src: url('./fonts/DS-DIGIT.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
 
