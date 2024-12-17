@@ -8,19 +8,18 @@ export const Inputcompo = ({ onStart, handleinput }) => {
     const [sec, setSec] = useState('');
     const [min, setmin] = useState('');
     const [hrs, sethrs] = useState('');
-    const [clickc, setclickc] = useState(false);
+    // const [clickc, setclickc] = useState(false);
     const [error, setError] = useState('');
 
-    useEffect(() => {
-        if (clickc) {
-            inputRefHrs.current.focus();
-        }
-    }, [clickc]);
+    // useEffect(() => {
+    //     if (clickc) {
+            
+    //     }
+    // }, [clickc]);
 
 
     const handlecompoclick = () => {
-        setclickc(false)
-        setclickc(true)
+        inputRefHrs.current.focus();
     }
 
     const checkInput = () => {
@@ -60,7 +59,7 @@ export const Inputcompo = ({ onStart, handleinput }) => {
 
 
     return (
-        <div onClick={handlecompoclick} className="input-container flex flex-col font-custom bg-black text-white p-2 shadow-2xl shadow-orange-900 mx-auto rounded-3xl justify-center">
+        <div onClick={handlecompoclick} className="input-container flex flex-col font-custom bg-black text-white p-2 w-[270px] shadow-2xl shadow-orange-400 mx-auto rounded-3xl justify-center">
             <div className="input-boxs flex flex-row p-10 justify-center items-center max-w-64">
                 <input
                     id='hrs'

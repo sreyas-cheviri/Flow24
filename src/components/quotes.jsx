@@ -42,7 +42,7 @@ export const Quotes = () => {
     }, []);
 
     return (
-        <div className=" flex flex-col font-medium bg-black max-w-[272px] w-full  text-white p-2 shadow-2xl shadow-orange-900 mx-auto rounded-3xl justify-center">
+        <div className=" flex flex-col font-medium bg-black max-w-[272px] w-full  text-white p-2 shadow-2xl shadow-orange-400 mx-auto rounded-3xl justify-center">
             <div className="flex flex-col p-4 break-words items-center ">
                 {loading ? (
                     <img src={gif} alt="Loading..." className="w-16 h-16" />
