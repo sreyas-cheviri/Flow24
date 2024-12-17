@@ -8,18 +8,18 @@ export const Inputcompo = ({ onStart, handleinput }) => {
     const [sec, setSec] = useState('');
     const [min, setmin] = useState('');
     const [hrs, sethrs] = useState('');
-    // const [clickc, setclickc] = useState(false);
+    const [clickc, setclickc] = useState(false);
     const [error, setError] = useState('');
 
-    // useEffect(() => {
-    //     if (clickc) {
-            
-    //     }
-    // }, [clickc]);
+    useEffect(() => {
+        if (clickc) {
+            inputRefHrs.current.focus(); 
+        }
+    }, [clickc]);
 
 
     const handlecompoclick = () => {
-        inputRefHrs.current.focus();
+        setclickc(true);
     }
 
     const checkInput = () => {
