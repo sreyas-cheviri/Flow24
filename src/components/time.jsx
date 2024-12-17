@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStop, faPause } from '@fortawesome/free-solid-svg-icons';
+import white from '../assets/white.gif'
 
 
 export const Time = () => {
@@ -33,15 +34,16 @@ export const Time = () => {
             <div className=" flex flex-col rounded-r-xl  justify-center shadow-2xl shadow-orange-400 rounded-3xl bg-black items-center w-full flex-2">
                 <h4 className="p-3 text-xl text-center font-custom">{time}</h4>
             </div>
-            <div className=" flex-col  p-1  gap-1 rounded-l-xl justify-center shadow-2xl shadow-orange-400 rounded-3xl w-full bg-[#ffffff1c] border-2 items-center flex-4">
+            <div className=" flex-col  p-1  gap-1 rounded-l-xl justify-center shadow-2xl shadow-orange-400 rounded-3xl w-full bg-[#ffffff1c] border-2 border-gray-400 items-center flex-4">
 
-                <div className="flex text-center justify-center p-2">
-                <img  src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Cloud%20with%20Rain.png" alt="Cloud with Rain" width="35" height="35" />
+                <div className="flex-col flex items-center text-center justify-center p-1  rounded-full">
+                <img className="rounded-full"  src={white} alt="Cloud with Rain" width="40" height="40" />
+                <p className="text-s font-thin text-gray-500 italic">white noise</p>
                 </div>
-                <div className="flex-col m-2 justify-center items-center">
+                <div className="flex-col m-1 justify-center items-center">
     
-                    <div className="gap-7 bg-orange-400 rounded-full flex p-3 justify-center">
-                        <button className="   flex justify-center items-center text-black hover:text-white rounded-full">  <FontAwesomeIcon icon={faStop} /></button>
+                    <div className=" bg-orange-400 rounded-xl flex p-2 justify-center">
+                        <button className="   flex justify-center items-center text-black hover:text-white">  <FontAwesomeIcon icon={faStop} /></button>
                     </div>
                 </div>
 
