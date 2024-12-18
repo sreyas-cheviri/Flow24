@@ -61,7 +61,7 @@ export const Time = () => {
             </div>
 
             {/* Hidden audio element */}
-            <audio ref={audioRef} src="/public/01-White-Noise-10min.mp3" loop />
+            <audio ref={audioRef} src="/01-White-Noise-10min.mp3" loop />
         </div>
     );
 };
