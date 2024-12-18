@@ -1,7 +1,7 @@
 
 **Flow24** is an app designed to help you stay in a focused flow state 24/7. With features that promote productivity and mindfulness, it’s perfect for those looking to optimize their focus throughout the day.
 
-This is a **React ** project Flow24 app
+This is a **React** project Flow24 app
 
 ## Features
 
