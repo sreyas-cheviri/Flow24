@@ -10,7 +10,7 @@ export const Counter = (props) => {
         isPaused,
         handlePause,
         onreset,
-        handleResume
+        handleResume,
     } = props;
     return (
         <div className="font-custom text-2xl input-container flex flex-col font-medium bg-black text-white p-2  w-[270px] shadow-2xl shadow-orange-400 mx-auto rounded-3xl justify-center">

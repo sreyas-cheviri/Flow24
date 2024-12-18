@@ -14,7 +14,7 @@ function App() {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [timerId, setTimerId] = useState(0);
-
+  const totalTime = hourse * 3600 + minutes * 60 + seconds;
   const handlestart = () => {
     setIsStart(true);
   }
@@ -100,7 +100,8 @@ function App() {
         isPaused={isPaused}
         handlePause={handlePause}
         handleResume={handleResume}
-        onreset={handlereset} />)}
+        onreset={handlereset}
+        totalTime={totalTime} />)}
       <Time />
       <Quotes />
       <Footer />

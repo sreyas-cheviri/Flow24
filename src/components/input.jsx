@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from "react";
 
 export const Inputcompo = ({ onStart, handleinput }) => {
   const inputRefHrs = useRef(null);
+  const inputRefMin = useRef(null);
+  const inputRefSec = useRef(null);
   const [sec, setSec] = useState("");
   const [min, setmin] = useState("");
   const [hrs, sethrs] = useState("");
@@ -65,24 +67,36 @@ export const Inputcompo = ({ onStart, handleinput }) => {
       <div className="input-boxs flex flex-row p-10 justify-center items-center max-w-64">
         <input
           id="hrs"
+        //   type="number"
           ref={inputRefHrs}
           value={hrs}
           onChange={(e) => {
+            const value = e.target.value.slice(0,2);
             handleinput(e); // Call the first function
-            sethrs(e.target.value); // Perform the second action
+            sethrs(value); // Perform the second action
+            if(value.length ===2){
+                inputRefMin.current.focus();
+            }
           }}
           className="hrs text-4xl p-2 max-w-14 flex-1 bg-transparent border-none focus:outline-none placeholder:text-gray-500 focus:placeholder:text-white"
           placeholder="00"
           autoComplete="off"
+          maxLength={2}
         />
         <span className="text-gray-400">:</span>
         <input
           id="min"
+          ref={inputRefMin}
           value={min}
           onChange={(e) => {
+            const value = e.target.value.slice(0,2);
             handleinput(e); // Call the first function
-            setmin(e.target.value); // Perform the second action
+            setmin(value); // Perform the second action
+            if(value.length ===2){
+                inputRefSec.current.focus();
+            }
           }}
+          maxLength={2}
           className="min text-4xl p-2 flex-1 max-w-14 bg-transparent border-none focus:outline-none placeholder:text-gray-500 focus:placeholder:text-white"
           placeholder="00"
           autoComplete="off"
@@ -90,13 +104,16 @@ export const Inputcompo = ({ onStart, handleinput }) => {
         <span className="text-gray-400">:</span>
         <input
           id="sec"
+          ref={inputRefSec}
           autoComplete="off"
           value={sec}
+          maxLength={2}
           // onChange={handleInput}
           // onChange={(e) => setSec(e.target.value)}
           onChange={(e) => {
+            const value = e.target.value.slice(0,2);
             handleinput(e); // Call the first function
-            setSec(e.target.value); // Perform the second action
+            setSec(value); // Perform the second action
           }}
           className="sec text-4xl p-2 flex-1 max-w-14 bg-transparent border-none focus:outline-none placeholder:text-gray-500 focus:placeholder:text-white"
           placeholder="00"
