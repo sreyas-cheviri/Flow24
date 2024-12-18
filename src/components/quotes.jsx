@@ -1,24 +1,24 @@
 import { useEffect, useState } from 'react';
 import gif from '../assets/gif.gif';
- 
+
 export const Quotes = () => {
     const [quote, setQuote] = useState('');
     const [author, setAuthor] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const categories = ['success', 'motivation', 'hardwork' , 'design','education','dreams'];
+    const categories = ['success', 'motivation', 'hardwork', 'design', 'education', 'dreams'];
 
     const API_KEY = import.meta.env.VITE_API_KEY;
 
 
     const fetchQuote = async () => {
         setLoading(true);
-        setError(null); // Clear any previous errors
+        setError(null);
         try {
             const randomCategory = categories[Math.floor(Math.random() * categories.length)];
             const response = await fetch('https://api.api-ninjas.com/v1/quotes?category=' + randomCategory, {
                 headers: {
-                    'X-Api-Key': API_KEY, // Add your API key here
+                    'X-Api-Key': API_KEY,
                 },
             });
 
@@ -27,6 +27,7 @@ export const Quotes = () => {
             }
 
             const data = await response.json();
+            console.log(data);
             const { quote, author } = data[0]; // Access the first quote
             setQuote(quote);
             setAuthor(author);
@@ -38,7 +39,7 @@ export const Quotes = () => {
     };
 
     useEffect(() => {
-        fetchQuote(); // Fetch quote on mount
+        fetchQuote();
     }, []);
 
     return (

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStop, faPause } from '@fortawesome/free-solid-svg-icons';
+import { faStop, faPlay } from '@fortawesome/free-solid-svg-icons';
 import white from '../assets/white.gif'
 
 
