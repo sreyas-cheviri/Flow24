@@ -48,7 +48,7 @@ export const Quotes = () => {
                 {loading ? (
                     <img src={gif} alt="Loading..." className="w-16 h-16" />
                 ) : error ? (
-                    <p className="text-orange-400 font-thin text-sm">try again</p>
+                    <p className="text-orange-400 font-thin text-sm">try again / quota finished</p>
                 ) : (
                     <div className='flex-col justify-center items-center'>
                         <h4 className="text-sm mb-4">{quote}</h4>
